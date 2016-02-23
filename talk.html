@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Awesome Presentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!---
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+    -->
+  </head>
+  <body>
+    <textarea id="source">
+
+
+# "casting"
+
+```
+sub a_Int (Int $i) {
+    say "Int: $i ", $i.WHAT;
+}
+my $int = 4;
+my $rat = 4.5;
+
+a_Int($int);
+ --> Int: 4 (Int)
+
+a_Int($rat);
+ --> Type check failed in binding $i; expected Int but got Rat
+```
+---
+
+# Solution
+```
+a_Int($rat.Int);
+```
+.right[casting.pl]
+--
+Toll?
+
+--
+naja...
+
+---
+# multi-dispatch
+* same name, but different signature
+
+```
+multi f (Int $i) { say "i: $i" }
+multi f (Rat $r) { say "f for rat"; f($r.Int) }
+
+f(4);
+f(4.5);
+```
+.right[multi.pl]
+
+---
+# Agenda
+
+1. Introduction
+2. Deep-dive
+3. ...
+
+[NOTE]: Note that you need remark.js alongside this html file, but no internet connection.
+---
+
+# Introduction
+
+    </textarea>
+    <script src="remark.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({highlightLanguage:'perl'});
+    </script>
+  </body>
+</html>
