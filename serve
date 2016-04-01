@@ -1,0 +1,2 @@
+export MOJO_LISTEN=http://127.0.0.1:4000
+perl -Mojo -E 'get "/"=>sub{$_[0]->redirect_to("index.html")};a()->static->paths(["."]);a()->start' daemon
