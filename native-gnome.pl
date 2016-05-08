@@ -12,6 +12,16 @@ returns Pointer
 is native(GTKLIB)
 {*}
 
+sub gtk_button_new_with_label (Str)
+returns Pointer
+is native(GTKLIB)
+{*}
+
+sub gtk_container_add(Pointer, Pointer)
+returns int32
+is native(GTKLIB)
+{*}
+
 sub gtk_widget_show_all(Pointer)
 returns int32
 is native(GTKLIB)
@@ -21,9 +31,14 @@ sub gtk_main()
 is native(GTKLIB)
 {*}
 
+
+
 my @argv := CArray[Str].new;
 gtk_init(0, @argv);
+
 my $window = gtk_window_new(0);
+my $button = gtk_button_new_with_label("Hallihallo");
+gtk_container_add($window, $button);
 gtk_widget_show_all($window);
 gtk_main();
 
