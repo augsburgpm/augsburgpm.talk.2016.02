@@ -17,4 +17,4 @@ my @senders = (^5).map: {start {
                      }
 }};
 
-await @senders;
+await @senders, $receiver;
