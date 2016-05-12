@@ -8,14 +8,13 @@ TODO
    * UTF-8 support?
    * glaxx macht eine Rust-Einführung
 
-NEXT
+DONE
     * signaturen
         * benannte Parameter
         * positionale Par.
         * optionale Par.
    * signatur eines skripts, hilfe aus dem skript direkt generieren (auch multi)
 
-DONE
    * casting my Int $; $i.Rat
    * fibonacci erklären
    * infix operator (?) +
